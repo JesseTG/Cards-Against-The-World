@@ -14,15 +14,27 @@ public class DisplayMessageActivity extends Activity {
 
 	    // Get the message from the intent
 	    Intent intent = getIntent();
-	    String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+	    String username = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
-	    // Create the text view
-	    TextView textView = new TextView(this);
-	    textView.setTextSize(40);
-	    textView.setText("Please wait while we find a game for you to join, "+message+".");
-
-	    // Set the text view as the activity layout
-	    setContentView(textView);
+	    if(username == null || username.equals(""))
+	    {
+	    	TextView textView = new TextView(this);
+	    	textView.setTextSize(20);
+	    	textView.setText("You MUST put in a username to join a game");
+	    }
+	    else
+	    {
+		    // Create the text view
+		    TextView textView = new TextView(this);
+		    textView.setTextSize(20);
+		    textView.setText("Please wait while we find a game for you to join, "+username+".");
+	
+		    // Set the text view as the activity layout
+		    setContentView(textView);
+		    
+		    User player = new User(username);
+		    Game.join(player);
+	    }
 	}
 
 	@Override
