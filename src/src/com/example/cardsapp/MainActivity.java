@@ -29,7 +29,8 @@ public class MainActivity extends Activity
         editText.setOnEditorActionListener(exampleListener);
         */
         setContentView(R.layout.activity_main);
-        Game game = new Game();
+        
+        //Game game = new Game();
     }
 
 

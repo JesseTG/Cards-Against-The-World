@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class DisplayMessageActivity extends Activity {
@@ -11,30 +13,37 @@ public class DisplayMessageActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-
 	    // Get the message from the intent
 	    Intent intent = getIntent();
 	    String username = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
+	    TextView textView = new TextView(this);
 	    if(username == null || username.equals(""))
 	    {
-	    	TextView textView = new TextView(this);
+	    	setContentView(R.layout.activity_display_message);
 	    	textView.setTextSize(20);
 	    	textView.setText("You MUST put in a username to join a game");
+	    	
+	    	Button backButton = new Button(this);
+	    	backButton.setText("back");
+	    	/*backButton.setOnClickListener(new View.OnClickListener() {
+	    		public void onClick(View v) {
+	                 goBack(v);
+	             }
+	         });*/
 	    }
 	    else
 	    {
 		    // Create the text view
-		    TextView textView = new TextView(this);
 		    textView.setTextSize(20);
 		    textView.setText("Please wait while we find a game for you to join, "+username+".");
 	
-		    // Set the text view as the activity layout
-		    setContentView(textView);
 		    
 		    User player = User.createUser(username);
 		    Game.join(player);
 	    }
+		    // Set the text view as the activity layout
+		    setContentView(textView);
 	}
 
 	@Override
@@ -44,4 +53,9 @@ public class DisplayMessageActivity extends Activity {
 		return true;
 	}
 
+	public void goBack(View view)
+	{
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
+	}
 }
