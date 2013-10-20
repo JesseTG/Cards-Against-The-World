@@ -2,7 +2,6 @@ package com.example.cardsapp;
 
 public class Game
 {
-	public static final ServerConnection sc = new ServerConnection(); 
 	/**
 	 * Sends the player information so that the server would push player in a pre-existing game
 	 * @param player User that wants to join a pre-existing game
@@ -13,7 +12,7 @@ public class Game
 				"activity=join"+
 				"user="+player.getUsername()+
 				"ip="+player.getIP();
-		sc.send(paramString);
+		send(paramString);
 	}
 	
 	/**
@@ -26,6 +25,6 @@ public class Game
 				"activity=create"+
 				"user="+player.getUsername()+
 				"id="+player.getIP();
-		sc.send(paramString);
+		send(paramString);
 	}
 }
