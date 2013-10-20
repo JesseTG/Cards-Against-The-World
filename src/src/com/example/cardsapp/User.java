@@ -33,6 +33,10 @@ public class User {
 		return me;
 	}
 	
+	public static User getPlayer(){
+		return me;
+	}
+	
 	/**
 	 * Returns the IP of the current machine so that the server can transmit information.
 	 * @return

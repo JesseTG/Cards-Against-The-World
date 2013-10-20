@@ -5,6 +5,18 @@ import java.io.IOException;
 public class Game
 {
 	public static final ServerConnection sc=new ServerConnection();
+	private static boolean gameStarted=false;
+	private String input;
+	
+	public Game(){
+		join(User.getPlayer());
+		try {
+			input = sc.getServerInput();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		parseInput(input);
+	}
 	/**
 	 * Sends the player information so that the server would push player in a pre-existing game
 	 * @param player User that wants to join a pre-existing game
@@ -19,9 +31,12 @@ public class Game
 		try {
 			sc.send(paramString);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	private void parseInput(String input){
+		System.out.println(input);
 	}
 	
 	/**

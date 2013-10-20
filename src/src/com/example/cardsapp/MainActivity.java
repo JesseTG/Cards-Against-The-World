@@ -17,7 +17,7 @@ public class MainActivity extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EditText editText = (EditText) findViewById(R.id.username_msg);
+        /*EditText editText = (EditText) findViewById(R.id.username_msg);
         TextView.OnEditorActionListener exampleListener = new TextView.OnEditorActionListener(){
         	public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
         		   if (actionId == EditorInfo.IME_NULL  
@@ -27,7 +27,9 @@ public class MainActivity extends Activity
         		   return true;
         		}};
         editText.setOnEditorActionListener(exampleListener);
+        */
         setContentView(R.layout.activity_main);
+        Game game = new Game();
     }
 
 
