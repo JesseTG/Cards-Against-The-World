@@ -26,18 +26,21 @@ public class MainActivity extends Activity
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
-    public void createGame(View view)
-    {
-    	Intent intent = new Intent(this, DisplayMessageActivity.class);
-    	EditText editText = (EditText) findViewById(R.id.edit_mssage);
-    	String message = editText.getText().toString();
-    	intent.putExtra(EXTRA_MESSAGE, message);
-
-    }
-    
+        
+    /**
+     * Generates the next page the User would go to after joining a game.
+     * 
+     * @param view HomePageActivity (this class)
+     */
     public void joinGame(View view)
     {
-    	
+    	//connects this class to JoinButtonActivity class
+    	Intent intent = new Intent(this, DisplayMessageActivity.class);
+    	//grabs the the textbox containing username information
+	    EditText editText = (EditText) findViewById(R.id.username_msg);
+	    //grabs the username
+	    String message = editText.getText().toString();
+	    intent.putExtra(EXTRA_MESSAGE, message);
+	    startActivity(intent);
     }
 }

@@ -19,7 +19,7 @@ public class DisplayMessageActivity extends Activity {
 	    // Create the text view
 	    TextView textView = new TextView(this);
 	    textView.setTextSize(40);
-	    textView.setText(message);
+	    textView.setText("Please wait while we find a game for you to join, "+message+".");
 
 	    // Set the text view as the activity layout
 	    setContentView(textView);

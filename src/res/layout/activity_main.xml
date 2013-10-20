@@ -14,28 +14,8 @@
         android:layout_height="wrap_content"
         android:text="@string/title" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="107dp"
-        android:text="@string/join" 
-        android:onClick="joinGame()"/>
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_marginLeft="45dp"
-        android:layout_toRightOf="@+id/button1"
-        android:text="@string/create" />
-
     <EditText
-        android:id="@+id/edit_mssage"
+        android:id="@+id/username_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -43,5 +23,15 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="@string/username" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username_msg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:onClick="joinGame"
+        android:text="@string/join" />
 
 </RelativeLayout>
