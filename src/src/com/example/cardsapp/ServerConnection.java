@@ -10,7 +10,7 @@ import java.net.URL;
 
 /*
  * Connects to server, sends info (String) to server, reads info from Server
- * 
+ * Very Basic, needs to update methods
  */
 public class ServerConnection {
 
@@ -42,31 +42,35 @@ public class ServerConnection {
 	 * Sends info to server
 	 * @param String info to be sent to server
 	 */
-	public void send(String info) throws IOException {
+	public void send(String info) {
 		if (!connection.getDoOutput())
 			connection.setDoOutput(true);
 		
-		connection.setRequestMethod("GET");
-		OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
-		out.write(info);
-		//info sent, wait for input (server response)
-		String input = getServerInput();
-		//print input for now
-		System.out.println(input);
-
+		try { 
+			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+			out.write(info);
+			//info sent, wait for input (server response)
+			String input = getServerInput();
+			//print input for now
+			System.out.println(input);
+		}
+		catch(IOException e) {
+			System.err.format("I/O Exception: %s\n", e);
+			e.printStackTrace();
+		}
+		
 	}
 	
 	/*
 	 * Gets Server Input: Sets up input stream to read in server output
 	 * @return input from server, null if some error occured
 	 */
-	public String getServerInput() throws IOException {
+	public String getServerInput() {
 		if(!connection.getDoInput()) //if connection is sending output, set it to input mode
 			connection.setDoInput(true);
 		
-			String input = null;
-			
-			connection.setRequestMethod("GET");
+		String input = null;
+		try {
 			BufferedReader in = new BufferedReader(new InputStreamReader(
 													connection.getInputStream()));
 			String buf;
@@ -74,7 +78,11 @@ public class ServerConnection {
 				input += buf;
 			}
 			in.close();
-		
+		}
+		catch(IOException e) {
+			System.err.format("I/O Exception: %s\n", e);
+			e.printStackTrace();
+		}
 		
 		connection.setDoInput(false);
 		return input;
