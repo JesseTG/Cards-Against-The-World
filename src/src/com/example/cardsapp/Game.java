@@ -1,5 +1,7 @@
 package com.example.cardsapp;
 
+import java.io.IOException;
+
 public class Game
 {
 	public static final ServerConnection sc=new ServerConnection();
@@ -13,13 +15,20 @@ public class Game
 				"activity=join"+
 				"user="+player.getUsername()+
 				"ip="+player.getIP();
-		sc.send(paramString);
+		
+		try {
+			sc.send(paramString);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**
 	 * Sends the player information so that the server would create a new game and push the player in it
 	 * @param player User that wants to create a new game
 	 */
+	/*
 	public static void create(User player)
 	{
 		String paramString = 
@@ -28,4 +37,5 @@ public class Game
 				"id="+player.getIP();
 		sc.send(paramString);
 	}
+	*/
 }
