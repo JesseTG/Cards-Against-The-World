@@ -14,7 +14,7 @@ import java.net.URL;
  */
 public class ServerConnection {
 
-	private final String serverURL = ""; //set to "" until Parameter class is made
+	private final String serverURL = Parameters.URL; //set to "" until Parameter class is made
 	/* Connection to the server */
 	private HttpURLConnection connection;
 	
