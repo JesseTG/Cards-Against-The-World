@@ -10,9 +10,9 @@ public class Game
 	{
 		String paramString = 
 				"activity=join"+
-				"user="+player.getUserName()+
+				"user="+player.getUsername()+
 				"ip="+player.getIP();
-		send(paramString);
+		//send(paramString);
 	}
 	
 	/**
@@ -23,8 +23,8 @@ public class Game
 	{
 		String paramString = 
 				"activity=create"+
-				"user="+player.getUserName()+
+				"user="+player.getUsername()+
 				"id="+player.getIP();
-		send(paramString);
+		//send(paramString);
 	}
 }

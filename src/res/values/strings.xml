@@ -3,6 +3,11 @@
 
     <string name="app_name">CardsApp</string>
     <string name="action_settings">Settings</string>
+    <string name="title">Cards Against the World</string>
+    <string name="create">Create Game</string>
+    <string name="join">Join Game</string>
+    <string name="username">Username</string>
+    <string name="title_activity_display_message">DisplayMessageActivity</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>

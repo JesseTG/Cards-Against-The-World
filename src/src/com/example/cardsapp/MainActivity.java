@@ -1,11 +1,18 @@
 package com.example.cardsapp;
 
 import android.os.Bundle;
+import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
-import android.view.Menu;
+import android.content.Intent;
+import android.view.*;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-public class MainActivity extends Activity {
-
+public class MainActivity extends Activity 
+{
+	public final static String EXTRA_MESSAGE = "com.example.cardsapp.MESSAGE";
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,4 +27,17 @@ public class MainActivity extends Activity {
         return true;
     }
     
+    public void createGame(View view)
+    {
+    	Intent intent = new Intent(this, DisplayMessageActivity.class);
+    	EditText editText = (EditText) findViewById(R.id.edit_mssage);
+    	String message = editText.getText().toString();
+    	intent.putExtra(EXTRA_MESSAGE, message);
+
+    }
+    
+    public void joinGame(View view)
+    {
+    	
+    }
 }
