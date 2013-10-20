@@ -1,3 +1,7 @@
 com.android.ide.eclipse.adt.fixLegacyEditors=1
+<<<<<<< HEAD
 com.android.ide.eclipse.adt.sdk=C\:\\Users\\allie\\android-sdks
+=======
+com.android.ide.eclipse.adt.sdk=C\:\\Users\\Home\\Downloads\\adt-bundle-windows\\sdk
+>>>>>>> fbbee427c42475539ffa68a74e9e63100ed7dbe4
 eclipse.preferences.version=1
