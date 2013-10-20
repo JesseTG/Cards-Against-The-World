@@ -5,6 +5,7 @@ import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.*;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,6 +17,16 @@ public class MainActivity extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EditText editText = (EditText) findViewById(R.id.username_msg);
+        TextView.OnEditorActionListener exampleListener = new TextView.OnEditorActionListener(){
+        	public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
+        		   if (actionId == EditorInfo.IME_NULL  
+        		      && event.getAction() == KeyEvent.ACTION_DOWN) { 
+        		      joinGame(exampleView);//match this behavior to your 'Send' (or Confirm) button
+        		   }
+        		   return true;
+        		}};
+        editText.setOnEditorActionListener(exampleListener);
         setContentView(R.layout.activity_main);
     }
 
