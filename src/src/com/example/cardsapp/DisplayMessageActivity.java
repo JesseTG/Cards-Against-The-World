@@ -32,7 +32,7 @@ public class DisplayMessageActivity extends Activity {
 		    // Set the text view as the activity layout
 		    setContentView(textView);
 		    
-		    User player = new User(username);
+		    User player = User.createUser(username);
 		    Game.join(player);
 	    }
 	}

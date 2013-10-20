@@ -14,14 +14,23 @@ import java.util.*;
 public class User {
 	private String username;
 	private String IP;
+	public static User me=null;
 	
 	/**
 	 * Constructor for type user.
 	 * @param username : The username the player entered at joining to play.
 	 */
-	public User(String username){
+	private User(String username){
 		this.username=username;
 		IP=findIP();
+	}
+	
+	public static User createUser(String username){
+		if(me==null){
+			me=new User(username);
+		}
+		
+		return me;
 	}
 	
 	/**
